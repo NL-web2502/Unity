@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;  
 
-public class PlayerMove : MonoBehaviour
+public class MoveIsometric: MonoBehaviour
 {
     [SerializeField] private Transform _player;
     public float moveSpeed = 5f; 

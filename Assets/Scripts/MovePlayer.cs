@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 
 public class MovePlayer : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    public Transform groundCheck;
-    public float checkRadius = 0.3f;
-    public LayerMask groundLayer;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float checkRadius = 0.3f;
+    [SerializeField] private LayerMask groundLayer;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -19,7 +19,7 @@ public class MovePlayer : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
         var kb = Keyboard.current;
@@ -28,7 +28,7 @@ public class MovePlayer : MonoBehaviour
         moveInput = 0f;
         if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) moveInput = -1f;
         if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) moveInput = 1f;
-
+ 
         if (kb.spaceKey.wasPressedThisFrame && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -36,7 +36,7 @@ public class MovePlayer : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    { 
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
     }
 }

@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class VehicleMovement : MonoBehaviour
 {
-    [Header("Настройки движения")]
-    public float speed = 2f;           
-    public Transform[] waypoints;      
+    [SerializeField] private float speed = 2f;           
+    [SerializeField] private Transform[] waypoints;      
 
     private int currentWaypointIndex = 0;  
 
     void Start()
     {
-         if (waypoints.Length > 0)
+        if (waypoints.Length > 0)
         {
             transform.position = waypoints[0].position;
             currentWaypointIndex = 1; 
