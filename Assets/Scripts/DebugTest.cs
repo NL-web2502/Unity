@@ -10,8 +10,11 @@ public class DebugTest: MonoBehaviour
 
      private void Update()
     {
-       Debug.DrawLine(Vector3.zero, new Vector3 (5,4,0));
-
+      if(Input.GetKeyDown(KeyCode.Space))
+      {
+        Debug.DrawLine(Vector3.zero, new Vector3(5,4,0), Color.green, 2.5f);
+      } 
+      Debug.DrawRay(new Vector3(-1,0,0), new Vector3 (5,4,0), Color.red);
     } 
 
 
